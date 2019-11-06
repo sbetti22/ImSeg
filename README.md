@@ -33,17 +33,17 @@ in `deblend_sources()` function make the following changes:
 
 change: 
 
-> ```def deblend_sources(data, segment_img, npixels, filter_kernel=None, labels=None, nlevels=32, contrast=0.001, mode='exponential', connectivity=8, relabel=True):```
+ ```def deblend_sources(data, segment_img, npixels, filter_kernel=None, labels=None, nlevels=32, contrast=0.001, mode='exponential', connectivity=8, relabel=True):```
 
 to: 
 
-> ```def deblend_sources(data, data_byte,segment_img, npixels, filter_kernel=None,labels=None, contrast=0.001, mode='exponential', connectivity=8, relabel=True):```
+```def deblend_sources(data, data_byte,segment_img, npixels, filter_kernel=None,labels=None, contrast=0.001, mode='exponential', connectivity=8, relabel=True):```
 
 --------------------
 
 change: 
 
->```for label in labels:
+```for label in labels:
     source_slice = segment_img.slices[label - 1]
     source_data = data[source_slice]
     source_segm = SegmentationImage(np.copy(segment_img.data[source_slice]))
@@ -55,7 +55,7 @@ change:
 
 to: 
 
-> ```for label in labels:
+ ```for label in labels:
     source_slice = segment_img.slices[label - 1]
     source_data = data[source_slice]
     source_data_byte = data_byte[source_slice]
@@ -71,29 +71,29 @@ In ```_deblend_source()``` function, make the following changes:
 
 change: 
 
->```def _deblend_source(data, segment_img, npixels, nlevels=32, contrast=0.001, mode='exponential', connectivity=8):```
+```def _deblend_source(data, segment_img, npixels, nlevels=32, contrast=0.001, mode='exponential', connectivity=8):```
                     
 to:                    
 
->```def _deblend_source(data, data_byte, segment_img, npixels, nlevels, contrast=0.001, mode='exponential', connectivity=8):```
+```def _deblend_source(data, data_byte, segment_img, npixels, nlevels, contrast=0.001, mode='exponential', connectivity=8):```
 
 --------------------
 
 change: 
->```if nlevels < 1:
+```if nlevels < 1:
         raise ValueError('nlevels must be >= 1, got "{0}"'.format(nlevels))```
 
 
 to: 
 
->``` '''if nlevels < 1:
+``` '''if nlevels < 1:
         raise ValueError('nlevels must be >= 1, got "{0}"'.format(nlevels))''' ```
 
 --------------------
 
 change: 
 
->```steps = np.arange(1., nlevels + 1)
+```steps = np.arange(1., nlevels + 1)
 if mode == 'exponential':
     if source_min == 0:
         source_min = source_max * 0.01
@@ -111,7 +111,7 @@ else:
         
 to: 
 
->```if mode=='exponential':
+```if mode=='exponential':
     if source_min == 0:
         source_min = source_max * 0.01
     thresholds = source_min * ((source_max / source_min) ** \
