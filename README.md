@@ -48,7 +48,8 @@ change:
     source_data = data[source_slice]
     source_segm = SegmentationImage(np.copy(segment_img.data[source_slice]))
     source_segm.keep_labels(label)    # include only one label
-    source_deblended = _deblend_source(source_data, source_segm, npixels, nlevels=nlevels, contrast=contrast, mode=mode, connectivity=connectivity) ```
+    source_deblended = _deblend_source(source_data, source_segm, npixels, nlevels=nlevels, contrast=contrast, mode=mode, connectivity=connectivity)
+ ```
 
 
 
@@ -63,7 +64,8 @@ to:
     nlevels = nlevels[::-1]
     source_segm = SegmentationImage(np.copy(segment_img.data[source_slice]))
     source_segm.keep_labels(label)    # include only one label
-    source_deblended = _deblend_source(source_data, source_data_byte, source_segm, npixels, nlevels=nlevels, contrast=contrast, mode=mode, connectivity=connectivity) ```
+    source_deblended = _deblend_source(source_data, source_data_byte, source_segm, npixels, nlevels=nlevels, contrast=contrast, mode=mode, connectivity=connectivity) 
+```
 
 --------------------
 
