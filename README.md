@@ -33,11 +33,15 @@ in `deblend_sources()` function make the following changes:
 
 change: 
 
- ```def deblend_sources(data, segment_img, npixels, filter_kernel=None, labels=None, nlevels=32, contrast=0.001, mode='exponential', connectivity=8, relabel=True):```
+ ```
+ def deblend_sources(data, segment_img, npixels, filter_kernel=None, labels=None, nlevels=32, contrast=0.001, mode='exponential', connectivity=8, relabel=True):
+ ```
 
 to: 
 
-```def deblend_sources(data, data_byte,segment_img, npixels, filter_kernel=None,labels=None, contrast=0.001, mode='exponential', connectivity=8, relabel=True):```
+```
+def deblend_sources(data, data_byte,segment_img, npixels, filter_kernel=None,labels=None, contrast=0.001, mode='exponential', connectivity=8, relabel=True):
+```
 
 --------------------
 
@@ -152,7 +156,7 @@ To run ImSeg, the following files are needed:
 - weight .fits map
 - signal to noise .fits map
 - psf .fits map
-- N(H$_2$) .fits map
+- N(H_2) .fits map
 - (optional) noise realization (.nc or .fits) maps (if .fits, must have signal/weight/s2n/psf maps)
 - (optional) temperature .fits map
 - (optional) yso ra/dec list
