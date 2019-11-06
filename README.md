@@ -73,23 +73,27 @@ In ```_deblend_source()``` function, make the following changes:
 
 change: 
 
-```def _deblend_source(data, segment_img, npixels, nlevels=32, contrast=0.001, mode='exponential', connectivity=8):```
+```def _deblend_source(data, segment_img, npixels, nlevels=32, contrast=0.001, mode='exponential', connectivity=8):
+```
                     
 to:                    
 
-```def _deblend_source(data, data_byte, segment_img, npixels, nlevels, contrast=0.001, mode='exponential', connectivity=8):```
+```def _deblend_source(data, data_byte, segment_img, npixels, nlevels, contrast=0.001, mode='exponential', connectivity=8):
+```
 
 --------------------
 
 change: 
 ```if nlevels < 1:
-        raise ValueError('nlevels must be >= 1, got "{0}"'.format(nlevels))```
+        raise ValueError('nlevels must be >= 1, got "{0}"'.format(nlevels))
+```
 
 
 to: 
 
 ``` '''if nlevels < 1:
-        raise ValueError('nlevels must be >= 1, got "{0}"'.format(nlevels))''' ```
+        raise ValueError('nlevels must be >= 1, got "{0}"'.format(nlevels))'''
+ ```
 
 --------------------
 
@@ -106,7 +110,8 @@ elif mode == 'linear':
                                    (nlevels + 1)) * steps
 else:
     raise ValueError('"{0}" is an invalid mode; mode must be '
-                         '"exponential" or "linear"')```
+                         '"exponential" or "linear"')
+```
                          
                          
         
@@ -123,7 +128,8 @@ elif mode == 'linear':
 				   (np.max(data_byte)-np.min(data_byte)))*nlevels
 else:
     raise ValueError('"{0}" is an invalid mode; mode must be '
-                         '"exponential" or "linear"')```
+                         '"exponential" or "linear"')
+```
                          
                          
 --------------------
